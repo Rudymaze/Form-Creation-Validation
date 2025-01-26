@@ -25,4 +25,4 @@ async function fetchUserData() {
   }
 }
 
-document.addEventListener("DOMContent", fetchUserData);
+document.addEventListener("DOMContentLoaded", fetchUserData);
