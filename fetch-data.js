@@ -21,8 +21,8 @@ async function fetchUserData() {
 
     dataContainer.appendChild(userList);
   } catch (error) {
-    console.error(error);
+    console.error("Failed to load user data.", error);
   }
 }
 
-console.log(fetchUserData());
+document.addEventListener("DOMContent", fetchUserData());
