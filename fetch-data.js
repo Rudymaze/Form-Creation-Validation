@@ -3,8 +3,6 @@ async function fetchUserData() {
 
   const dataContainer = document.getElementById("api-data");
 
-  dataContainer.innerHTML = "";
-
   try {
     const response = await fetch(apiUrl);
 
@@ -12,8 +10,16 @@ async function fetchUserData() {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
 
-    const user = await response.json();
-    console.log(user.name);
+    const users = await response.json();
+    console.log(users.name);
+
+    dataContainer.innerHTML = "";
+    const userList = document.createElement("ul");
+    users.forEach((users) => {
+      userList.innerHTML = `<li>${users.name}</li>`;
+    });
+
+    dataContainer.appendChild(userList);
   } catch (error) {
     console.error(error);
   }
